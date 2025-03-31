@@ -1,4 +1,5 @@
 import 'package:e301_web/ui/layouts/widgets/background_image.dart';
+import 'package:e301_web/ui/views/custom_title.dart';
 import 'package:flutter/material.dart';
 
 class AuthLayout extends StatelessWidget {
@@ -42,7 +43,12 @@ class _DesktopBody extends StatelessWidget {
           Container(
             width: 600,
             height: double.infinity,
-            color: Colors.green,
+            color: Colors.black,
+            child: Column(
+              children: [
+                CustomTitle(),
+              ],
+            ),
           ),
         ],
       ),
