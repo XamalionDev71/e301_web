@@ -1,5 +1,6 @@
 import 'package:e301_web/ui/layouts/widgets/background_image.dart';
 import 'package:e301_web/ui/views/custom_title.dart';
+import 'package:e301_web/ui/views/links_bars.dart';
 import 'package:flutter/material.dart';
 
 class AuthLayout extends StatelessWidget {
@@ -17,6 +18,7 @@ class AuthLayout extends StatelessWidget {
           //Mobile
 
           //LinksBar
+          LinksBars(),
         ],
       ),
     );
@@ -36,7 +38,7 @@ class _DesktopBody extends StatelessWidget {
 
     return Container(
       width: size.width,
-      height: size.height,
+      height: size.height*0.9,
       color: Colors.amber,
       child: Row(
         children: [
