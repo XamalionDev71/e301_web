@@ -10,12 +10,16 @@ class AuthLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: ListView(
         children: [
-          //Desktop
-          _DesktopBody(child: child,),
-          //Mobile
+          //if(size.width>1000)?_DesktopBody(child: child):_MobileBody(child: child),
+          if(size.width>700)
+            _DesktopBody(child: child)
+          else
+            _MobileBody(child: child),
 
           //LinksBar
           LinksBars(),
@@ -28,9 +32,7 @@ class AuthLayout extends StatelessWidget {
 class _DesktopBody extends StatelessWidget {
   final Widget child;
 
-  const _DesktopBody({
-    required this.child
-  });
+  const _DesktopBody({required this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -38,27 +40,56 @@ class _DesktopBody extends StatelessWidget {
 
     return Container(
       width: size.width,
-      height: size.height*0.9,
-      color: Colors.amber,
+      height: size.height * 0.9,
+      //color: Colors.amber,
       child: Row(
         children: [
           //Imagen
           BackgroundImage(),
-          Expanded(child: Container(color: Colors.purple)),
           //View
-          Container(
-            width: 600,
-            height: double.infinity,
-            color: Colors.black,
-            child: Column(
-              children: [
-                CustomTitle(),
-                SizedBox(
-                  height: 50,
-                ),
-                Expanded(child: child),
-              ]
+          Expanded(
+            child: Container(
+              width: 500,
+              height: double.infinity,
+              color: Colors.black,
+              child: Column(
+                children: [
+                  CustomTitle(),
+                  SizedBox(height: 50),
+                  Expanded(child: child),
+                ],
+              ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _MobileBody extends StatelessWidget {
+  final Widget child;
+
+  const _MobileBody({ required this.child
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+      child: Column(
+        children: [
+          SizedBox(height: 20,),
+          CustomTitle(),
+          Container(
+            width: double.infinity,
+            height: 450,
+            child: child,
+          ),
+          Container(
+            width: double.infinity,
+            height: 400,
+            child: BackgroundImage(),
           ),
         ],
       ),
