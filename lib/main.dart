@@ -20,6 +20,11 @@ class MainApp extends StatelessWidget {
       builder: (_, child) {
         return AuthLayout(child: child!);
       },
+      theme: ThemeData.light().copyWith(
+        scrollbarTheme: ScrollbarThemeData().copyWith(
+          thumbColor: WidgetStatePropertyAll(Colors.amber.withAlpha(100)),
+        )
+      ),
     );
   }
 }
