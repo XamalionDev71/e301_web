@@ -1,3 +1,4 @@
+import 'package:e301_web/config/router/router.dart';
 import 'package:e301_web/ui/buttons/custom_outlined_button.dart';
 import 'package:e301_web/ui/buttons/links_text.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,12 @@ class RegisterView extends StatelessWidget {
                   isFilled: true,
                 ),
                 SizedBox(height: 20),
-                LinksText(text: 'Ir al login'),
+                LinksText(
+                  text: 'Ir al login',
+                  onPressed: (){
+                    Navigator.pushNamed(context, Flurorouter.loginRoute);
+                  },
+                ),
               ],
             ),
           ),
