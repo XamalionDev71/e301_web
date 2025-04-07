@@ -1,3 +1,4 @@
+import 'package:e301_web/ui/buttons/custom_outlined_button.dart';
 import 'package:e301_web/ui/buttons/links_text.dart';
 import 'package:flutter/material.dart';
 
@@ -33,6 +34,10 @@ class LoginView extends StatelessWidget {
                     icon: Icons.lock_clock_outlined,
                   ),
                 ),
+                SizedBox(height: 20),
+                CustomOutlinedButton(
+                  onPressed: (){},
+                  text: 'Ingresar'),
                 SizedBox(height: 20),
                 LinksText(text: 'Nueva Cuenta'),
               ],
