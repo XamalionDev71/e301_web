@@ -1,6 +1,7 @@
 import 'package:e301_web/config/router/router.dart';
 import 'package:e301_web/ui/buttons/custom_outlined_button.dart';
 import 'package:e301_web/ui/buttons/links_text.dart';
+import 'package:e301_web/ui/inputs/custom_inputs.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatelessWidget {
@@ -20,7 +21,7 @@ class RegisterView extends StatelessWidget {
               children: [
                 TextFormField(
                   style: TextStyle(color: Colors.white),
-                  decoration: buildInputDecoration(
+                  decoration: CustomInputs.loginInputDecoration(
                     hint: 'Ingrese su nombre',
                     label: 'Nombre',
                     icon: Icons.supervised_user_circle_outlined,
@@ -29,7 +30,7 @@ class RegisterView extends StatelessWidget {
                 SizedBox(height: 10,),
                 TextFormField(
                   style: TextStyle(color: Colors.white),
-                  decoration: buildInputDecoration(
+                  decoration: CustomInputs.loginInputDecoration(
                     hint: 'email',
                     label: 'Correo Electrónico',
                     icon: Icons.email_outlined,
@@ -38,7 +39,7 @@ class RegisterView extends StatelessWidget {
                 SizedBox(height: 10,),
                 TextFormField(
                   style: TextStyle(color: Colors.white),
-                  decoration: buildInputDecoration(
+                  decoration: CustomInputs.loginInputDecoration(
                     hint: '******',
                     label: 'Contraseña',
                     icon: Icons.lock_clock_outlined,
@@ -62,26 +63,6 @@ class RegisterView extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  InputDecoration buildInputDecoration({
-    required String hint,
-    required String label,
-    required IconData icon,
-  }){
-    return InputDecoration(
-      border: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.white.withAlpha(100)),
-      ),
-      enabledBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: Colors.white.withAlpha(100)),
-      ),
-      hintText: hint,
-      labelText: label,
-      prefixIcon: Icon(icon,color: Colors.grey.withAlpha(150)),
-      labelStyle: TextStyle(color: Colors.grey),
-      hintStyle: TextStyle(color: Colors.grey),
     );
   }
 }

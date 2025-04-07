@@ -30,9 +30,6 @@ class Flurorouter {
       handler: AdminHandlers.register,
       transitionType: TransitionType.none,
     );
-    //TODO: por implementar
-    //router.define(registerRoute, handler: handler);
-
     //404
     router.notFoundHandler = NoPageFoundHandlers.noPageFound;
   }
