@@ -1,3 +1,4 @@
+import 'package:e301_web/services/local_storage.dart';
 import 'package:flutter/material.dart';
 
 enum AuthStatus { checking, authenticated, notAuthenticated }
@@ -13,7 +14,8 @@ class AuthProvider extends ChangeNotifier {
   login(String email, String password) {
     //TODO:implementar petición HTTP
     this._token = 'agshjgjq.jhshjdashjasd.iukj';
-    print('Almacenar JWT: $_token');
+    //print('Almacenar JWT: $_token');
+    LocalStorage.prefs.setString('token', this._token!);
 
     //TODO: navegar al dashboard
 
@@ -21,7 +23,19 @@ class AuthProvider extends ChangeNotifier {
   }
 
   Future<bool> isAuthenticated() async {
+    final token = LocalStorage.prefs.getString('token');
 
+    if (token == null) {
+      authStatus = AuthStatus.notAuthenticated;
+      notifyListeners();
+      return false;
+    }
+
+    //TODO:Ir al backend y comprobar que el JWT es válido
+
+    await Future.delayed(Duration(milliseconds: 1000));
+    authStatus = AuthStatus.authenticated;
+    notifyListeners();
     return true;
   }
 }
