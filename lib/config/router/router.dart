@@ -1,4 +1,5 @@
 import 'package:e301_web/config/handlers/admin_handlers.dart';
+import 'package:e301_web/config/handlers/dashboard_handlers.dart';
 import 'package:e301_web/config/handlers/no_page_found_handlers.dart';
 import 'package:fluro/fluro.dart';
 
@@ -30,6 +31,14 @@ class Flurorouter {
       handler: AdminHandlers.register,
       transitionType: TransitionType.none,
     );
+
+    //Dashboard
+    router.define(
+      dashboardRoute,
+      handler: DashboardHandlers.dashboard,
+      transitionType: TransitionType.none,
+    );
+
     //404
     router.notFoundHandler = NoPageFoundHandlers.noPageFound;
   }

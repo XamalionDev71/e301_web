@@ -22,7 +22,7 @@ class RegisterView extends StatelessWidget {
           );
 
           return Container(
-            margin: EdgeInsets.only(top: 100),
+            margin: EdgeInsets.only(top: 50),
             padding: EdgeInsets.symmetric(horizontal: 20),
             color: Colors.black,
             child: Center(

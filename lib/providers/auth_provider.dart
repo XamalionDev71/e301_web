@@ -1,4 +1,6 @@
+import 'package:e301_web/config/router/router.dart';
 import 'package:e301_web/services/local_storage.dart';
+import 'package:e301_web/services/navigation_service.dart';
 import 'package:flutter/material.dart';
 
 enum AuthStatus { checking, authenticated, notAuthenticated }
@@ -36,6 +38,9 @@ class AuthProvider extends ChangeNotifier {
     await Future.delayed(Duration(milliseconds: 1000));
     authStatus = AuthStatus.authenticated;
     notifyListeners();
+
+    NavigationService.replaceTo(Flurorouter.dashboardRoute);
+    
     return true;
   }
 }
