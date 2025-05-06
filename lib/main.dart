@@ -4,6 +4,7 @@ import 'package:e301_web/services/local_storage.dart';
 import 'package:e301_web/services/navigation_service.dart';
 import 'package:e301_web/ui/layouts/auth/auth_layout.dart';
 import 'package:e301_web/ui/layouts/dashboard/dashboard_layout.dart';
+import 'package:e301_web/ui/layouts/splash/splash_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -42,7 +43,7 @@ class MainApp extends StatelessWidget {
         final authProvider = Provider.of<AuthProvider>(context);
 
         if (authProvider.authStatus == AuthStatus.checking) {
-          return Center(child: Text('Checking....'));
+          return SplashLayout();
         }
 
         if (authProvider.authStatus == AuthStatus.authenticated) {
