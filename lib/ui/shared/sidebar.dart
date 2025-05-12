@@ -1,3 +1,4 @@
+import 'package:e301_web/ui/shared/widgets/logo.dart';
 import 'package:flutter/material.dart';
 
 class Sidebar extends StatelessWidget {
@@ -12,7 +13,10 @@ class Sidebar extends StatelessWidget {
       child: ListView(
         physics: ClampingScrollPhysics(),
         children: [
+          //Logo
+          Logo(),
 
+          //Opciones
         ],
       ),
     );
