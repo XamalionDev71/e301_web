@@ -30,6 +30,7 @@ class _MenuItemState extends State<MenuItem> {
         ? Colors.white.withAlpha(150)
         : widget.isActive ? Colors.white.withAlpha(100) : Colors.transparent,
       child: Material(
+        color: Colors.transparent,
         child: InkWell(
           onTap: widget.isActive ? null : ()=>widget.onPressed(),
           child: Padding(
