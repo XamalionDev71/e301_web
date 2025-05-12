@@ -1,4 +1,5 @@
 import 'package:e301_web/ui/shared/widgets/logo.dart';
+import 'package:e301_web/ui/shared/widgets/text_separator.dart';
 import 'package:flutter/material.dart';
 
 class Sidebar extends StatelessWidget {
@@ -15,8 +16,11 @@ class Sidebar extends StatelessWidget {
         children: [
           //Logo
           Logo(),
+          SizedBox(height: 50),
 
           //Opciones
+          TextSeparator(text: 'main'),
+
         ],
       ),
     );
