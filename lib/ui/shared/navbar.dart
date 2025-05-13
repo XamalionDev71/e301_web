@@ -1,3 +1,6 @@
+import 'package:e301_web/ui/shared/widgets/navbar_avatar.dart';
+import 'package:e301_web/ui/shared/widgets/notification_indicator.dart';
+import 'package:e301_web/ui/shared/widgets/search_text.dart';
 import 'package:flutter/material.dart';
 
 class Navbar extends StatelessWidget {
@@ -22,6 +25,15 @@ class Navbar extends StatelessWidget {
             constraints: BoxConstraints(maxWidth: 250),
             child: SearchText(),
           ),
+
+          //Notificaciones
+          Spacer(),
+          NotificationIndicator(),
+
+          //Avatar
+          SizedBox(width: 10),
+          NavbarAvatar(),
+          SizedBox(width: 10),
         ],
       ),
     );
