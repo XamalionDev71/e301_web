@@ -8,7 +8,32 @@ class Navbar extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 50,
-      color: Colors.red,
+      decoration: buildBoxDecoration(),
+      child: Row(
+        children: [
+          //icono del menu
+          IconButton(
+            onPressed: (){},
+            icon: Icon(Icons.menu_outlined)
+          ),
+
+          //caja de busqueda
+          ConstrainedBox(
+            constraints: BoxConstraints(maxWidth: 250),
+            child: SearchText(),
+          ),
+        ],
+      ),
     );
   }
+
+  BoxDecoration buildBoxDecoration() => BoxDecoration(
+    color: Colors.white,
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black12,
+        blurRadius: 5
+      )
+    ]
+  );
 }
