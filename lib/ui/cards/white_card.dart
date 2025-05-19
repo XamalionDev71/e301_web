@@ -33,7 +33,8 @@ class WhiteCard extends StatelessWidget {
               ),
             ),
             Divider(),
-          ]
+          ],
+          child,
         ],
       ),
     );
