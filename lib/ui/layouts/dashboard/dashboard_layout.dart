@@ -1,11 +1,29 @@
+import 'package:e301_web/providers/sidemenu_provider.dart';
 import 'package:e301_web/ui/shared/navbar.dart';
 import 'package:e301_web/ui/shared/sidebar.dart';
 import 'package:flutter/material.dart';
 
-class DashboardLayout extends StatelessWidget {
+class DashboardLayout extends StatefulWidget {
   final Widget child;
 
   const DashboardLayout({super.key, required this.child});
+
+  @override
+  State<DashboardLayout> createState() => _DashboardLayoutState();
+}
+
+class _DashboardLayoutState extends State<DashboardLayout>
+    with SingleTickerProviderStateMixin {
+  
+  @override
+  void initState() {
+    super.initState();
+
+    SidemenuProvider.menuController = new AnimationController(
+      vsync: this,
+      duration: Duration(milliseconds: 300)
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,14 +44,13 @@ class DashboardLayout extends StatelessWidget {
                     // Barra de navegación
                     Navbar(),
 
-                    Expanded(child: child),
+                    Expanded(child: widget.child),
                   ],
                 ),
               ),
             ],
           ),
-          if(size.width<700)
-            Sidebar(),
+          if (size.width < 700) Sidebar(),
         ],
       ),
     );
