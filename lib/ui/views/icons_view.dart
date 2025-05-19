@@ -12,7 +12,14 @@ class IconsView extends StatelessWidget {
         children: [
           Text('Icons View',style: CustomLabels.h1),
           SizedBox(height: 10),
-          
+          Wrap(
+            children: [
+              WhiteCard(
+                title: 'ac_unit_outlined',
+                child: Icon(Icons.ac_unit_outlined)
+              ),
+            ],
+          )
         ],
       ),
     );
