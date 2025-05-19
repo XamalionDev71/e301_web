@@ -50,7 +50,18 @@ class _DashboardLayoutState extends State<DashboardLayout>
               ),
             ],
           ),
-          if (size.width < 700) Sidebar(),
+          if (size.width < 700) 
+            AnimatedBuilder(
+              animation: SidemenuProvider.menuController,
+              builder: (context,_)=> Stack(
+                children: [
+                  Transform.translate(
+                    offset: Offset(SidemenuProvider.movement.value, 0),
+                    child: Sidebar(),
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );
