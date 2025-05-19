@@ -1,3 +1,4 @@
+import 'package:e301_web/providers/sidemenu_provider.dart';
 import 'package:e301_web/ui/shared/widgets/logo.dart';
 import 'package:e301_web/ui/shared/widgets/menu_item.dart';
 import 'package:e301_web/ui/shared/widgets/text_separator.dart';
@@ -24,7 +25,7 @@ class Sidebar extends StatelessWidget {
           MenuItem(
             text: 'Dashboard',
             icon: Icons.compass_calibration_outlined,
-            onPressed: () => print('Dashboard'),
+            onPressed: () => SidemenuProvider.closeMenu(),
             isActive: false,
           ),
           MenuItem(text: 'Orders', icon: Icons.shopping_cart_checkout_outlined, onPressed: (){}),

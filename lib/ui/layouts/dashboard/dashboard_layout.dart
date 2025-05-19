@@ -53,8 +53,20 @@ class _DashboardLayoutState extends State<DashboardLayout>
           if (size.width < 700) 
             AnimatedBuilder(
               animation: SidemenuProvider.menuController,
-              builder: (context,_)=> Stack(
+              builder: (context, _)=> Stack(
                 children: [
+                  if(SidemenuProvider.isOpen)
+                    Opacity(
+                      opacity:SidemenuProvider.opacity.value,
+                      child: GestureDetector(
+                        onTap: ()=>SidemenuProvider.closeMenu(),
+                        child: Container(
+                          width: size.width,
+                          height: size.height,
+                          color: Colors.black26,
+                        ),
+                      ),
+                    ),
                   Transform.translate(
                     offset: Offset(SidemenuProvider.movement.value, 0),
                     child: Sidebar(),

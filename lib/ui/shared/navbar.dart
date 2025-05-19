@@ -1,3 +1,4 @@
+import 'package:e301_web/providers/sidemenu_provider.dart';
 import 'package:e301_web/ui/shared/widgets/navbar_avatar.dart';
 import 'package:e301_web/ui/shared/widgets/notification_indicator.dart';
 import 'package:e301_web/ui/shared/widgets/search_text.dart';
@@ -18,7 +19,10 @@ class Navbar extends StatelessWidget {
         children: [
           //icono del menu
           if(size.width<=700)
-            IconButton(onPressed: () {}, icon: Icon(Icons.menu_outlined)),
+            IconButton(
+              onPressed: ()=> SidemenuProvider.openMenu(), 
+              icon: Icon(Icons.menu_outlined)
+            ),
 
           SizedBox(width: 5),
 
