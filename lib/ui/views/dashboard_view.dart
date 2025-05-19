@@ -1,3 +1,4 @@
+import 'package:e301_web/ui/labels/custom_labels.dart';
 import 'package:flutter/material.dart';
 
 class DashboardView extends StatelessWidget {
@@ -6,8 +7,10 @@ class DashboardView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Center(
-        child: Text('Dashboard View')
+      child: ListView(
+        children: [
+          Text('Dashboard View',style: CustomLabels.h1,),
+        ],
       ),
     );
   }
