@@ -9,8 +9,8 @@ class DashboardHandlers {
   static Handler dashboard = Handler(
     handlerFunc: (context, params) {
       final authProvider = Provider.of<AuthProvider>(context!);
-
-      if (authProvider.authStatus == AuthStatus.notAuthenticated) {
+      
+      if (authProvider.authStatus == AuthStatus.authenticated) {
         return DashboardView();
       } else {
         return LoginView();
@@ -22,7 +22,7 @@ class DashboardHandlers {
     handlerFunc: (context, params) {
       final authProvider = Provider.of<AuthProvider>(context!);
 
-      if (authProvider.authStatus == AuthStatus.notAuthenticated) {
+      if (authProvider.authStatus == AuthStatus.authenticated) {
         return IconsView();
       } else {
         return LoginView();

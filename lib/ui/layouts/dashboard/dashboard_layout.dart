@@ -4,9 +4,9 @@ import 'package:e301_web/ui/shared/sidebar.dart';
 import 'package:flutter/material.dart';
 
 class DashboardLayout extends StatefulWidget {
-  final Widget child;
-
   const DashboardLayout({super.key, required this.child});
+
+  final Widget child;
 
   @override
   State<DashboardLayout> createState() => _DashboardLayoutState();
@@ -14,14 +14,13 @@ class DashboardLayout extends StatefulWidget {
 
 class _DashboardLayoutState extends State<DashboardLayout>
     with SingleTickerProviderStateMixin {
-  
   @override
   void initState() {
     super.initState();
 
     SidemenuProvider.menuController = new AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 300)
+      duration: Duration(milliseconds: 300),
     );
   }
 
@@ -46,7 +45,10 @@ class _DashboardLayoutState extends State<DashboardLayout>
 
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 20,
+                          vertical: 10,
+                        ),
                         child: widget.child,
                       ),
                     ),
@@ -55,29 +57,31 @@ class _DashboardLayoutState extends State<DashboardLayout>
               ),
             ],
           ),
-          if (size.width < 700) 
+          if (size.width < 700)
             AnimatedBuilder(
               animation: SidemenuProvider.menuController,
-              builder: (context, _)=> Stack(
-                children: [
-                  if(SidemenuProvider.isOpen)
-                    Opacity(
-                      opacity:SidemenuProvider.opacity.value,
-                      child: GestureDetector(
-                        onTap: ()=>SidemenuProvider.closeMenu(),
-                        child: Container(
-                          width: size.width,
-                          height: size.height,
-                          color: Colors.black26,
+              builder:
+                  (context, _) => Stack(
+                    children: [
+                      if (SidemenuProvider.isOpen)
+                        Opacity(
+                          opacity: SidemenuProvider.opacity.value,
+                          child: GestureDetector(
+                            onTap: () => SidemenuProvider.closeMenu(),
+                            behavior: HitTestBehavior.opaque,
+                            child: Container(
+                              width: size.width,
+                              height: size.height,
+                              color: Colors.black26,
+                            ),
+                          ),
                         ),
+                      Transform.translate(
+                        offset: Offset(SidemenuProvider.movement.value, 0),
+                        child: Sidebar(),
                       ),
-                    ),
-                  Transform.translate(
-                    offset: Offset(SidemenuProvider.movement.value, 0),
-                    child: Sidebar(),
+                    ],
                   ),
-                ],
-              ),
             ),
         ],
       ),

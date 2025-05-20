@@ -10,17 +10,17 @@ class AuthProvider extends ChangeNotifier {
   AuthStatus authStatus = AuthStatus.checking;
 
   AuthProvider() {
-    this.isAuthenticated();
+    isAuthenticated();
   }
 
   login(String email, String password) {
     //TODO:implementar petición HTTP
-    this._token = 'agshjgjq.jhshjdashjasd.iukj';
+    _token = 'agshjgjq.jhshjdashjasd.iukj';
     //print('Almacenar JWT: $_token');
-    LocalStorage.prefs.setString('token', this._token!);
+    LocalStorage.prefs.setString('token', _token!);
 
     //TODO: navegar al dashboard
-
+    authStatus = AuthStatus.authenticated;
     notifyListeners();
   }
 
@@ -40,7 +40,7 @@ class AuthProvider extends ChangeNotifier {
     notifyListeners();
 
     NavigationService.replaceTo(Flurorouter.dashboardRoute);
-    
+
     return true;
   }
 }

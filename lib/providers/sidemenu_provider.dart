@@ -21,7 +21,7 @@ class SidemenuProvider {
 
   static void closeMenu() {
     isOpen = false;
-    menuController.reverse;
+    menuController.reverse();
   }
 
   static void toggleMenu() {
